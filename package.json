@@ -1,0 +1,14 @@
+{
+  "name": "guillotine",
+  "version": "0.1.1",
+  "license": "MIT",
+  "module": "./dist/guillotine.mjs",
+  "main": "./dist/guillotine.cjs.js",
+  "exports": {
+    "import": "./dist/guillotine.mjs",
+    "require": "./dist/guillotine.cjs.js"
+  },
+  "dependencies": {
+    "@biomejs/biome": "1.7.3"
+  }
+}

@@ -1,0 +1,6 @@
+.lexical/
+_build/
+deps/
+doc/
+node_modules/
+erl_crash.dump

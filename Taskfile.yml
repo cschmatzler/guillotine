@@ -1,0 +1,26 @@
+version: 3
+silent: true
+
+tasks:
+  deps:
+    cmds:
+      - mix deps.get
+      - mix deps.compile
+      - npm i
+      - npm --cwd assets i
+
+  format:
+    cmds:
+      - mix format
+      - npx @biomejs/biome format --write .
+
+  build:
+    cmds:
+      - mix esbuild module --minify
+      - mix esbuild main --minify
+
+  publish:
+    cmds:
+      - task: format
+      - task: build
+      - mix hex.publish
