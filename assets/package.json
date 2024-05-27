@@ -1,0 +1,15 @@
+{
+  "name": "assets",
+  "version": "0.1.1",
+  "license": "MIT",
+  "main": "./assets/js/index.js",
+  "module": "./assets/js/index.js",
+  "exports": {
+    ".": "./js/index.js"
+  },
+  "dependencies": {
+    "@zag-js/accordion": "^0.51.1",
+    "@zag-js/menu": "^0.51.1",
+    "@zag-js/types": "^0.51.1"
+  }
+}

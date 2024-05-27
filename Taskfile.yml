@@ -1,0 +1,14 @@
+version: 3
+silent: true
+
+tasks:
+  deps:
+    cmds:
+      - mix deps.get
+      - mix deps.compile
+      - npm --cwd assets i
+
+  build:
+    cmds:
+      - mix esbuild module
+      - mix esbuild main
