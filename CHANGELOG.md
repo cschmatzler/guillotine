@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+### Added
+
+- New component: `Guillotine.Dialog`
+
 ## 0.2.0 (2024-05-28)
 
 ### Added
