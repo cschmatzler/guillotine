@@ -1,6 +1,5 @@
 import * as dialog from "@zag-js/dialog";
-import { normalizeProps } from "./normalize-props";
-import { spreadProps } from "./spread-props";
+import { normalizeProps, renderPart } from "./util";
 
 export const Dialog = {
   mounted() {
@@ -28,17 +27,6 @@ export const Dialog = {
 
   render() {
     parts = ["trigger", "backdrop", "positioner", "content", "title", "description", "close-trigger"]
-    parts.forEach((part) => this.renderPart(part));
+    parts.forEach((part) => renderPart(this.el, part, this.api));
   },
-
-  renderPart(name) {
-    const part = this.el.querySelector(`[data-part='${name}']`);
-    if (part) spreadProps(part, this.api[`${kebabToCamel(name)}Props`]);
-  }
 };
-
-function kebabToCamel(str) {
-  return str.replace(/-([a-z])/g, function(_match, letter) {
-    return letter.toUpperCase();
-  });
-}

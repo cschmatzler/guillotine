@@ -1,6 +1,5 @@
 import * as menu from "@zag-js/menu";
-import { normalizeProps } from "./normalize-props";
-import { spreadProps } from "./spread-props";
+import { normalizeProps, spreadProps } from "./util";
 
 export const Menu = {
   mounted() {
