@@ -1,6 +1,28 @@
 defmodule Guillotine.Dialog do
   @moduledoc """
+  A dialog component.
 
+  ## Example
+
+  ```heex
+  <.dialog>
+    <.dialog_trigger class="rounded-md bg-blue-500 px-3 py-1.5 text-sm text-white shadow-sm hover:bg-blue-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500">
+      Open dialog
+    </.dialog_trigger>
+    <.dialog_backdrop class="absolute inset-0 w-full h-full bg-gray-200"></.dialog_backdrop>
+    <.dialog_positioner class="fixed inset-0 z-10 w-screen overflow-y-auto flex min-h-full items-center justify-center p-4">
+      <.dialog_content class="w-full max-w-md rounded-xl bg-white p-6 outline-0">
+        <.dialog_title class="text-base font-medium">Dialog</.dialog_title>
+        <.dialog_description class="mt-2 text-sm">Welcome to Guillotine!</.dialog_description>
+        <div class="mt-4">
+          <.dialog_close_trigger class="rounded-md bg-blue-500 px-3 py-1.5 text-sm text-white shadow-sm hover:bg-blue-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500">
+            Close
+          </.dialog_close_trigger>
+        </div>
+      </.dialog_content>
+    </.dialog_positioner>
+  </.dialog>
+  ```
   """
 
   use Phoenix.Component
