@@ -33,7 +33,7 @@ export const Dialog = {
 
   renderPart(name) {
     const part = this.el.querySelector(`[data-part='${name}']`);
-    if (part) spreadProps(part, this.api[`${kebabToCamel(part)}Props`]);
+    if (part) spreadProps(part, this.api[`${kebabToCamel(name)}Props`]);
   }
 };
 
