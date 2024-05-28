@@ -66,7 +66,7 @@ defmodule Guillotine.Dialog do
     Guillotine.render_as_tag_or_component(assigns, %{"data-part" => "description"})
   end
 
-  attr :as, :any, default: "span", doc: "Tag or component to render as"
+  attr :as, :any, default: "button", doc: "Tag or component to render as"
   attr :rest, :global, doc: "Additional attributes"
   slot :inner_block
 
