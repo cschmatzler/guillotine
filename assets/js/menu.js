@@ -1,5 +1,5 @@
 import * as menu from "@zag-js/menu";
-import { normalizeProps, spreadProps } from "./util";
+import { normalizeProps, spreadProps, renderPart } from "./util";
 
 export const Menu = {
   mounted() {
@@ -42,13 +42,8 @@ export const Menu = {
   },
 
   render() {
-    const trigger = this.el.querySelector("[data-part='trigger']");
-    const positioner = this.el.querySelector("[data-part='positioner']");
-    const content = this.el.querySelector("[data-part='content']");
-
-    if (trigger) spreadProps(trigger, this.api.triggerProps);
-    if (positioner) spreadProps(positioner, this.api.positionerProps);
-    if (content) spreadProps(content, this.api.contentProps);
+    parts = ["trigger", "positioner", "content"]
+    parts.forEach((part) => renderPart(this.el, part, this.api));
 
     this.labels().forEach((label) => {
       spreadProps(label, this.api.getItemGroupLabelProps({ htmlFor: label.dataset.for }));
