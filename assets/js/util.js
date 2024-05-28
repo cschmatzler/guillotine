@@ -105,9 +105,7 @@ export function spreadProps(node, attrs) {
 }
 
 export function renderPart(root, name, api) {
-  camelizedName = str.replace(/-([a-z])/g, function(_match, letter) {
-    return letter.toUpperCase();
-  });
+  const camelizedName = name.replace(/-([a-z])/g, (_match, letter) => letter.toUpperCase());
 
   const part = root.querySelector(`[data-part='${name}']`);
   if (part) spreadProps(part, api[`${camelizedName}Props`]);
