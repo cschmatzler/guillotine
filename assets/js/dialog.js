@@ -41,6 +41,6 @@ export const Dialog = {
     if (content) spreadProps(content, this.api.contentProps);
     if (title) spreadProps(title, this.api.titleProps);
     if (description) spreadProps(description, this.api.descriptionProps);
-    if (closeTrigger) spreadProps(closeTrigger, this.api.closeTrigger);
+    if (closeTrigger) spreadProps(closeTrigger, this.api.closeTriggerProps);
   },
 };
