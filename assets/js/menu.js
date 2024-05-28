@@ -42,7 +42,7 @@ export const Menu = {
   },
 
   render() {
-    parts = ["trigger", "positioner", "content"]
+    parts = ["trigger", "positioner", "content"];
     parts.forEach((part) => renderPart(this.el, part, this.api));
 
     this.labels().forEach((label) => {

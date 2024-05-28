@@ -1,4 +1,3 @@
-
 import { createNormalizer } from "@zag-js/types";
 
 const prevAttrsMap = new WeakMap();

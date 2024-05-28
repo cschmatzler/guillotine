@@ -26,7 +26,7 @@ export const Dialog = {
   },
 
   render() {
-    parts = ["trigger", "backdrop", "positioner", "content", "title", "description", "close-trigger"]
+    parts = ["trigger", "backdrop", "positioner", "content", "title", "description", "close-trigger"];
     parts.forEach((part) => renderPart(this.el, part, this.api));
   },
 };
