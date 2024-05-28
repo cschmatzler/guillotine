@@ -6,9 +6,21 @@ tasks:
     cmds:
       - mix deps.get
       - mix deps.compile
+      - npm i
       - npm --cwd assets i
+
+  format:
+    cmds:
+      - mix format
+      - npx @biomejs/biome format --write .
 
   build:
     cmds:
       - mix esbuild module
       - mix esbuild main
+
+  publish:
+    cmds:
+      - task: format
+      - task: build
+      - mix hex.publish
