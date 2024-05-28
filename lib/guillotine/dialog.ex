@@ -19,6 +19,14 @@ defmodule Guillotine.Dialog do
     Guillotine.render_as_tag_or_component(assigns, %{"phx-hook" => "Dialog"})
   end
 
+  attr :as, :any, default: "button", doc: "Tag or component to render as"
+  attr :rest, :global, doc: "Additional attributes"
+  slot :inner_block
+
+  def dialog_trigger(assigns) do
+    Guillotine.render_as_tag_or_component(assigns, %{"data-part" => "trigger"})
+  end
+
   attr :as, :any, default: "div", doc: "Tag or component to render as"
   attr :rest, :global, doc: "Additional attributes"
 
