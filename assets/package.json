@@ -1,6 +1,6 @@
 {
-  "name": "assets",
-  "version": "0.2.0",
+  "name": "phoenix-guillotine",
+  "version": "0.3.0",
   "license": "MIT",
   "main": "./assets/js/index.js",
   "module": "./assets/js/index.js",

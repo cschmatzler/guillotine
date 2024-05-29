@@ -1,0 +1,14 @@
+.formatter.exs
+.tool-versions
+Taskfile.yml
+_build/
+assets/
+biome.json
+config/
+deps/
+doc/
+lib/
+mix.exs
+mix.lock
+renovate.json
+test/

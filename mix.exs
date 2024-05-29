@@ -5,7 +5,7 @@ defmodule Guillotine.MixProject do
     [
       app: :guillotine,
       description: "Fully accessible unstyled Phoenix components",
-      version: "0.2.0",
+      version: "0.3.0",
       elixir: "~> 1.13",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
