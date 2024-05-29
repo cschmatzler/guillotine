@@ -5,111 +5,62 @@ defmodule Guillotine.Menu do
   ## Example
 
   ```heex
-  <.menu>
-    <.menu_trigger class="rounded-md bg-blue-500 px-3 py-1.5 text-sm text-white shadow-sm hover:bg-blue-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500">
-      Menu
-    </.menu_trigger>
-    <.menu_positioner>
-      <.menu_content class="z-10 w-48 text-sm origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-        <.menu_item as={&Phoenix.Component.link/1} navigate="/link" class="block px-4 py-2 outline-0 data-[highlighted]:bg-gray-100">
-          Phoenix Link
-        </.menu_item>
-        <.menu_item as="a" href="/anchor" class="block px-4 py-2 outline-0 data-[highlighted]:bg-gray-100">
-          Anchor
-        </.menu_item>
-      </.menu_content>
-    </.menu_positioner>
-  </.menu>
+      <div {menu()}>
+        <button
+          class="rounded-md bg-blue-500 px-3 py-1.5 text-sm text-white shadow-sm hover:bg-blue-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-500"
+          {menu_trigger()}
+        >
+          Menu
+        </button>
+        <div {menu_positioner()}>
+          <div
+            class="z-10 w-48 text-sm origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+            {menu_content()}
+          >
+            <Phoenix.Component.link navigate="/link" class="block px-4 py-2 outline-0 data-[highlighted]:bg-gray-100" {menu_item()}>
+              Link
+            </Phoenix.Component.link>
+            <a href="/anchor" id="test" class="block px-4 py-2 outline-0 data-[highlighted]:bg-gray-100" {menu_item()}>Anchor</a>
+          </div>
+        </div>
+      </div>
+    </div>
   ```
   """
 
   use Phoenix.Component
 
-  attr :id, :string, doc: "ID"
-  attr :as, :any, default: "div", doc: "Tag or component to render as"
-  attr :rest, :global, doc: "Additional attributes"
-  slot :inner_block
+  import Guillotine
 
-  @doc """
-
-  """
-  def menu(assigns) do
-    assigns = assign_new(assigns, :id, fn -> Guillotine.nanoid() end)
-
-    Guillotine.render_as_tag_or_component(assigns, %{"role" => "menu", "phx-hook" => "Menu"})
+  def menu do
+    %{"id" => nanoid(), "phx-hook" => "Menu"}
   end
 
-  attr :as, :any, default: "button", doc: "Tag or component to render as"
-  attr :rest, :global, doc: "Additional attributes"
-  slot :inner_block
-
-  def menu_trigger(assigns) do
-    Guillotine.render_as_tag_or_component(assigns, %{"data-part" => "trigger"})
+  def menu_trigger do
+    %{"data-part" => "trigger"}
   end
 
-  attr :rest, :global, doc: "Additional attributes"
-  slot :inner_block
-
-  def menu_positioner(assigns) do
-    ~H"""
-    <div data-part="positioner" {@rest}>
-      <%= render_slot(@inner_block) %>
-    </div>
-    """
+  def menu_positioner do
+    %{"data-part" => "positioner"}
   end
 
-  attr :rest, :global, doc: "Additional attributes"
-  slot :inner_block
-
-  def menu_content(assigns) do
-    ~H"""
-    <div data-part="content" {@rest}>
-      <%= render_slot(@inner_block) %>
-    </div>
-    """
+  def menu_content do
+    %{"data-part" => "content"}
   end
 
-  attr :for, :string, required: true, doc: "Group the label belongs to"
-  attr :rest, :global, doc: "Additional attributes"
-  slot :inner_block
-
-  def menu_label(assigns) do
-    ~H"""
-    <div data-part="label" data-for={@for} {@rest}>
-      <%= render_slot(@inner_block) %>
-    </div>
-    """
+  def menu_separator do
+    %{"data-part" => "separator"}
   end
 
-  attr :id, :string, doc: "ID"
-  attr :rest, :global, doc: "Additional attributes"
-  slot :inner_block
-
-  def menu_group(assigns) do
-    assigns = assign_new(assigns, :id, fn -> Guillotine.nanoid() end)
-
-    ~H"""
-    <div id={@id} data-part="group" {@rest}>
-      <%= render_slot(@inner_block) %>
-    </div>
-    """
+  def menu_label do
+    %{"data-part" => "label"}
   end
 
-  attr :as, :any, default: "hr", doc: "Tag or component to render as"
-  attr :rest, :global, include: ~w(href), doc: "Additional attributes"
-
-  def menu_separator(assigns) do
-    Guillotine.render_as_tag_or_component(assigns, %{"data-part" => "separator"})
+  def menu_group do
+    %{"data-part" => "group", "id" => nanoid()}
   end
 
-  attr :id, :string, doc: "ID"
-  attr :as, :any, default: "a", doc: "Tag or component to render as"
-  attr :rest, :global, include: ~w(href), doc: "Additional attributes"
-  slot :inner_block
-
-  def menu_item(assigns) do
-    assigns = assign_new(assigns, :id, fn -> Guillotine.nanoid() end)
-
-    Guillotine.render_as_tag_or_component(assigns, %{"data-part" => "item"})
+  def menu_item do
+    %{"data-part" => "item", "id" => nanoid()}
   end
 end
