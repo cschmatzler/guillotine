@@ -26,9 +26,9 @@ defmodule Guillotine.MixProject do
       {:phoenix, "~> 1.7"},
       {:nanoid, "~> 2.1"},
       {:phoenix_live_view, "~> 0.20"},
-      {:ex_doc, "~> 0.33", only: :dev, runtime: false},
+      {:ex_doc, "~> 0.34", only: :dev, runtime: false},
       {:makeup_eex, "~> 0.1", only: :dev, runtime: false},
-      {:styler, "== 1.0.0-rc.0", only: [:dev, :test], runtime: false}
+      {:styler, "== 1.1.1", only: [:dev, :test], runtime: false}
     ]
   end
 

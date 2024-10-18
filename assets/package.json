@@ -8,8 +8,8 @@
     ".": "./js/index.js"
   },
   "dependencies": {
-    "@zag-js/dialog": "^0.51.1",
-    "@zag-js/menu": "^0.51.1",
-    "@zag-js/types": "^0.51.1"
+    "@zag-js/dialog": "^0.74.0",
+    "@zag-js/menu": "^0.74.0",
+    "@zag-js/types": "^0.74.0"
   }
 }
