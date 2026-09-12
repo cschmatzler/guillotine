@@ -25,9 +25,9 @@ defmodule Guillotine.MixProject do
       {:esbuild, "~> 0.8", runtime: Mix.env() == :dev},
       {:phoenix, "~> 1.7"},
       {:nanoid, "~> 2.1"},
-      {:phoenix_live_view, "~> 0.20"},
+      {:phoenix_live_view, "~> 1.0"},
       {:ex_doc, "~> 0.33", only: :dev, runtime: false},
-      {:makeup_eex, "~> 0.1", only: :dev, runtime: false},
+      {:makeup_eex, "~> 2.0", only: :dev, runtime: false},
       {:styler, "== 1.0.0-rc.0", only: [:dev, :test], runtime: false}
     ]
   end
